@@ -1,1 +1,5 @@
+## Module Membership Analysis
 
+The two modules passing multiple testing correction in correlation analysis with traits were assessed for significant correlation of module membersip (as captured by a Pearson's Correlation Coefficient between an individual methylation value and the eigengene of the module it is within) and gene signficance (a -log10 transformation of the p-value of trait correlation of that methylation value). When assessing module membership of these two significant associations, a weak but significant correlation is observed between P-value significance of depressive symptom association and module membership for methylated loci within the SN depression associated module (Coefficient = 0.12, p-value = 1.24e-05). By contrast the CN aggression associated module does not show any indication of a correlated relationship between module membership and significance of aggression symptom association (Coefficient = 0.07, p-value = 0.13).
+
+![Image](https://github.com/JoshHarveyGit/PD_TraitNetworkAnalysis/blob/main/SupplementaryMaterial/Results/MManalysis.png?raw=true)
