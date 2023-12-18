@@ -67,7 +67,7 @@ try({
 dev.off()
 
 # Fix any potential misannotated gene names
-SNsce = fix_bad_mgi_symbols(SE)
+SNsce = fix_bad_hgnc_symbols(SE)
 
 # Generate cell type data dropping uninformative genes with low expression, minimum human orthologues and no DEG between cell types
 ExpSNdrop <- drop_uninformative_genes(exp=SE,
