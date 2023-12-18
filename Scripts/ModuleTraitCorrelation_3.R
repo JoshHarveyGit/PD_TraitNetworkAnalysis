@@ -329,3 +329,27 @@ cpPlot <- cpAssociation+ylim(0,3.5)+theme(legend.position="none")+xlab(NULL)+ggt
 pdf("EWAS/WGCNA/SummaryAssociationPlots.pdf",height = 7, width = 12)
 plot_grid(snPlot,fcPlot,cpPlot,legendPlot)
 dev.off()
+
+# Save module annotations of interested 
+#Load 450K manifest file 
+
+ANNOT450<-read.csv("/mnt/data1/450K_reference/AdditionalAnnotation450K_Price_Great_SNPsinProbeSequence.csv")
+rownames(ANNOT450)<-ANNOT450[,1]
+
+#Save SN modules
+moduleColors = labels2colors(bwnet.sn$colors)  
+SNmodules <- data.frame(names(bwnet.sn$colors),moduleColors)
+colnames(SNmodules)[1] <- "IlmnID"
+ANNOT450$IlmnID <- as.character(ANNOT450$IlmnID)
+SNmodules <- left_join(SNmodules,ANNOT450[,c("IlmnID","UCSC_RefGene_Name","GREAT_anno1","CHR","MAPINFO")])
+
+save(SNmodules, file = "SNSummary.Rdata")
+  
+  #Save CP modules
+moduleColors = labels2colors(bwnet.cp$colors)  
+CPmodules <- data.frame(names(bwnet.cp$colors),moduleColors)
+colnames(CPmodules)[1] <- "IlmnID"
+ANNOT450$IlmnID <- as.character(ANNOT450$IlmnID)
+CPmodules <- left_join(CPmodules,ANNOT450[,c("IlmnID","UCSC_RefGene_Name","GREAT_anno1","CHR","MAPINFO")])
+save(CPmodules, file = "CPSummary.Rdata")
+  
